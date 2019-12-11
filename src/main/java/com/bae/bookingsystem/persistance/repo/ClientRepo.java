@@ -9,7 +9,5 @@ import org.springframework.stereotype.Repository;
  * UserRepo
  */
 @Repository
-public interface UserRepo extends JpaRepository<Client, Long> {
-
-    
+public interface ClientRepo extends JpaRepository<Client, Long> {
 }

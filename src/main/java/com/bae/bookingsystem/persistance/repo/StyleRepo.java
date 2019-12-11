@@ -10,6 +10,4 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface StyleRepo extends JpaRepository<Style, Long> {
-    
-    
 }
