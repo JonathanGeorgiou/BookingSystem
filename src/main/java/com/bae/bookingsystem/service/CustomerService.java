@@ -14,16 +14,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService {
 
-    @Autowired
+    //@Autowired
     private CustomerRepo customerRepo;
 
-	public Customer createCustomer(com.bae.bookingsystem.persistance.domain.Customer user) {
-		return null;
-	}
 
-    //add an autowired repo object
-    //put all the methods that interact with the database
-    // in here
+    public CustomerService(CustomerRepo customerRepo) {
+        this.customerRepo = customerRepo;
+    }
 
+    public Customer createCustomer(Customer customer){
+        return customerRepo.save(customer);
+    }
+
+
+	
+
+    
+    
     
 }

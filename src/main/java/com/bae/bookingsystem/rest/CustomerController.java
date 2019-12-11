@@ -1,5 +1,7 @@
 package com.bae.bookingsystem.rest;
 
+import javax.validation.Valid;
+
 import com.bae.bookingsystem.persistance.domain.Customer;
 import com.bae.bookingsystem.service.CustomerService;
 
@@ -33,7 +35,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping("/createClient")
-    public Customer createUser(@RequestBody Customer customer) {
+    public Customer createUser(@RequestBody @Valid Customer customer) {
 		return this.customerService.createCustomer(customer);
 	}
 
