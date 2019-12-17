@@ -31,8 +31,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class CustomerController {
 
-    @Autowired
     private CustomerService customerService;
+
+
+
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
+    
+
 
     @PostMapping("/createClient")
     public Customer createUser(@RequestBody @Valid Customer customer) {
