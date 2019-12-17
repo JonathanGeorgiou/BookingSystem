@@ -15,7 +15,6 @@ public class Style {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String decription;
     private double price;
     private int duration;
 
@@ -36,14 +35,6 @@ public class Style {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDecription() {
-        return this.decription;
-    }
-
-    public void setDecription(String decription) {
-        this.decription = decription;
     }
 
     public double getPrice() {

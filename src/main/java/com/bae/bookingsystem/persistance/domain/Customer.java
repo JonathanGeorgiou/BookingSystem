@@ -1,9 +1,14 @@
 package com.bae.bookingsystem.persistance.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 /**
  * User
@@ -12,25 +17,15 @@ import javax.persistence.Id;
 public class Customer {
 
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String firstName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-
-
-    public Customer() {
-    }
-
-
-    public Customer(String firstName, String lastName, String email, String phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerId")
+    private List<Booking> bookings;
 
     public Long getId() {
         return this.id;
@@ -72,17 +67,4 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", firstName='" + getFirstName() + "'" +
-            ", lastName='" + getLastName() + "'" +
-            ", email='" + getEmail() + "'" +
-            ", phoneNumber='" + getPhoneNumber() + "'" +
-            "}";
-    }
-
-    
 }
