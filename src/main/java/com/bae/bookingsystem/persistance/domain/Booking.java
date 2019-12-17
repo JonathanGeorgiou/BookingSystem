@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 /**
@@ -20,8 +20,12 @@ public class Booking {
     private Long id;
 
     @OneToOne
+    @JoinColumn(name = "id")
     private Style style;
     private LocalDateTime timeOfBooking;
+
+    public Booking() {
+    }
 
     public Style getStyle() {
         return this.style;

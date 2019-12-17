@@ -1,17 +1,23 @@
-// package com.bae.bookingsystem.service;
+package com.bae.bookingsystem.service;
 
-// import com.bae.bookingsystem.persistance.repo.StyleRepo;
+import com.bae.bookingsystem.persistance.domain.Style;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.stereotype.Service;
+import com.bae.bookingsystem.persistance.repo.StyleRepo;
 
-// /**
-// * StyleService
-// */
-// @Service
-// public class StyleService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-// @Autowired
-// private StyleRepo styleRepo;
+/**
+ * BookingService
+ */
+@Service
+public class StyleService {
 
-// }
+    @Autowired
+    private StyleRepo styleRepo;
+
+    public Style createStyle(Style style) {
+        return styleRepo.save(style);
+    }
+
+}

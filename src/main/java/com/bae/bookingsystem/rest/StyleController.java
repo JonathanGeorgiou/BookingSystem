@@ -2,8 +2,9 @@ package com.bae.bookingsystem.rest;
 
 import javax.validation.Valid;
 
-import com.bae.bookingsystem.persistance.domain.Customer;
-import com.bae.bookingsystem.service.CustomerService;
+import com.bae.bookingsystem.persistance.domain.Style;
+
+import com.bae.bookingsystem.service.StyleService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,26 +24,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping
-public class CustomerController {
+public class StyleController {
 
-    private CustomerService customerService;
+    private StyleService styleService;
 
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
+    public StyleController(StyleService styleService) {
+        this.styleService = styleService;
     }
 
-    @PostMapping("/createCustomer")
-    public Customer postCustomer(@RequestBody @Valid Customer customer) {
-        return this.customerService.createCustomer(customer);
+    @PostMapping("/createStyle")
+    public Style postStyle(@RequestBody @Valid Style style) {
+        return this.styleService.createStyle(style);
     }
-
-    // need these in this class to call upon our service methods and
-    // send them to a http address
-    // @GetMapping
-    // @PostMapping
-
-    // @PutMapping
-
-    // @DeleteMapping
-
 }

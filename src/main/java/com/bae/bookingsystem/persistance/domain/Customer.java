@@ -27,6 +27,9 @@ public class Customer {
     @JoinColumn(name = "customerId")
     private List<Booking> bookings;
 
+    public Customer() {
+    }
+
     public Long getId() {
         return this.id;
     }
