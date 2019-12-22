@@ -12,11 +12,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService {
 
-    @Autowired
     private CustomerRepo customerRepo;
+
+    @Autowired
+    public CustomerService(CustomerRepo customerRepo) {
+        this.customerRepo = customerRepo;
+    }
 
     public Customer createCustomer(Customer customer) {
         return customerRepo.save(customer);
+    }
+
+    public Customer findCustomer(long id) {
+        return this.customerRepo.findById(id).get();
     }
 
 }
