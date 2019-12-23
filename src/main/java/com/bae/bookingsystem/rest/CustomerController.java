@@ -49,7 +49,7 @@ public class CustomerController {
         return this.customerService.deleteCustomer(id);
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/findAllCustomers")
     public List<Customer> getAllCustomers() {
         return this.customerService.readCustomers();
     }
