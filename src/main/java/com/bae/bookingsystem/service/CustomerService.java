@@ -1,11 +1,9 @@
 package com.bae.bookingsystem.service;
 
-import java.util.Date;
 import java.util.List;
 
-import com.bae.bookingsystem.persistance.domain.Booking;
 import com.bae.bookingsystem.persistance.domain.Customer;
-import com.bae.bookingsystem.persistance.repo.BookingRepo;
+
 import com.bae.bookingsystem.persistance.repo.CustomerRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +16,8 @@ import org.springframework.stereotype.Service;
 public class CustomerService {
 
     private CustomerRepo customerRepo;
-    private BookingRepo bookingRepo;
+
     private Customer customer;
-    List<Booking> storedBookings = bookingRepo.findAll();
-    List<Date> storedTimes;
-    private Booking booking;
 
     @Autowired
     public CustomerService(CustomerRepo customerRepo) {

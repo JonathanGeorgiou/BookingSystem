@@ -3,6 +3,7 @@ package com.bae.bookingsystem.rest;
 import java.util.List;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 
 import com.bae.bookingsystem.persistance.domain.Customer;
 import com.bae.bookingsystem.service.CustomerService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -52,13 +54,14 @@ public class CustomerController {
         return this.customerService.readCustomers();
     }
 
-    // need these in this class to call upon our service methods and
-    // send them to a http address
-    // @GetMapping
-    // @PostMapping
+    @GetMapping("/findCustomer/{id}")
+    public Customer findCustomerById(@PathVariable long id) {
+        return this.customerService.findCustomer(id);
+    }
 
-    // @PutMapping
-
-    // @DeleteMapping
+    @PutMapping("/updateCustomer")
+    public Customer updateCustomer(@PathParam("id") long id, @RequestBody Customer customer) {
+        return this.customerService.updateCustomer(customer, id);
+    }
 
 }
