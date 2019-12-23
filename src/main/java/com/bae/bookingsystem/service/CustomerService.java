@@ -29,7 +29,7 @@ public class CustomerService {
 
     }
 
-    public Customer findCustomer(long id) {
+    public Customer findCustomer(Long id) {
         return this.customerRepo.findById(id).get();
     }
 
@@ -37,7 +37,7 @@ public class CustomerService {
         return this.customerRepo.findAll();
     }
 
-    public Customer updateCustomer(Customer customer, long id) {
+    public Customer updateCustomer(Customer customer, Long id) {
         Customer custToUpdate = findCustomer(id);
         custToUpdate.setFirstName(customer.getFirstName());
         custToUpdate.setLastName(customer.getLastName());
@@ -47,7 +47,7 @@ public class CustomerService {
         return this.customerRepo.save(custToUpdate);
     }
 
-    public String deleteCustomer(long id) {
+    public String deleteCustomer(Long id) {
         customer = this.customerRepo.findById(id).get();
         this.customerRepo.deleteById(id);
         return customer.getFirstName() + " " + customer.getLastName() + " has been deleted from the database.";
