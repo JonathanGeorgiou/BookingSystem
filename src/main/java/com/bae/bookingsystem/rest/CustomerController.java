@@ -16,14 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-// import com.fasterxml.jackson.annotation.JsonAnyGetter;
-
 import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.bind.annotation.DeleteMapping;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.PutMapping;
-// import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * BookingController
@@ -44,11 +37,6 @@ public class CustomerController {
         return this.customerService.createCustomer(customer);
     }
 
-    @DeleteMapping("/deleteCustomer/{id}")
-    public String deleteCustomer(@PathVariable Long id) {
-        return this.customerService.deleteCustomer(id);
-    }
-
     @GetMapping("/findAllCustomers")
     public List<Customer> getAllCustomers() {
         return this.customerService.readCustomers();
@@ -62,6 +50,11 @@ public class CustomerController {
     @PutMapping("/updateCustomer")
     public Customer updateCustomer(@PathParam("id") Long id, @RequestBody Customer customer) {
         return this.customerService.updateCustomer(customer, id);
+    }
+
+    @DeleteMapping("/deleteCustomer/{id}")
+    public String deleteCustomer(@PathVariable Long id) {
+        return this.customerService.deleteCustomer(id);
     }
 
 }
