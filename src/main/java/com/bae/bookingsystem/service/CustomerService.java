@@ -1,5 +1,6 @@
 package com.bae.bookingsystem.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.bae.bookingsystem.persistance.domain.Booking;
@@ -19,6 +20,9 @@ public class CustomerService {
     private CustomerRepo customerRepo;
     private BookingRepo bookingRepo;
     private Customer customer;
+    List<Booking> storedBookings = bookingRepo.findAll();
+    List<Date> storedTimes;
+    private Booking booking;
 
     @Autowired
     public CustomerService(CustomerRepo customerRepo) {
@@ -26,25 +30,32 @@ public class CustomerService {
     }
 
     public Customer createCustomer(Customer customer) {
-        if (this.customer.getBookings().contains(this.customer.getBookings().get(1))) {
-            throw new NullPointerException();
-        } else
-            return customerRepo.save(customer);
+        return customerRepo.save(customer);
+
     }
 
     public Customer findCustomer(long id) {
         return this.customerRepo.findById(id).get();
     }
 
+    public List<Customer> readCustomers() {
+        return this.customerRepo.findAll();
+    }
+
+    public Customer updateCustomer(Customer customer, long id) {
+        Customer custToUpdate = findCustomer(id);
+        custToUpdate.setFirstName(customer.getFirstName());
+        custToUpdate.setLastName(customer.getLastName());
+        custToUpdate.setEmail(customer.getEmail());
+        custToUpdate.setPhoneNumber(customer.getPhoneNumber());
+        custToUpdate.setBookings(customer.getBookings());
+        return this.customerRepo.save(custToUpdate);
+    }
+
     public String deleteCustomer(long id) {
         customer = this.customerRepo.findById(id).get();
         this.customerRepo.deleteById(id);
         return customer.getFirstName() + " " + customer.getLastName() + " has been deleted from the database.";
-
-    }
-
-    public List<Customer> readCustomers() {
-        return this.customerRepo.findAll();
     }
 
 }
