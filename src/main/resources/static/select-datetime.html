@@ -87,7 +87,7 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script src="build/jquery.datetimepicker.full.min.js"></script>
+    <script src="build/jquery.datetimepicker.full.js"></script>
     <script>
       $("#picker").datetimepicker({
         timepicker: true,
@@ -102,6 +102,11 @@
         disabledWeekDays: [1],
         showApplyButton: true
       });
+    </script>
+    <script>
+      document.getElementById("calendar_button").onclick = function() {
+        location.href = "/enter-details.html";
+      };
     </script>
   </body>
 </html>
