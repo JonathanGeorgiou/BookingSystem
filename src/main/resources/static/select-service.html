@@ -54,14 +54,17 @@
     <div class="card border-secondary mb-3">
       <div class="card-header">Please Select Your Service(s)</div>
       <div class="card-body">
+        <fieldset class="form-group">
+          <!-- <legend>Select a Service</legend> -->
         <div class="form-check">
-          <form>
-            <ul>
-              <li>
+          
+            
                 <label class="form-check-label">
                   <input
+                  type = "radio"
                     class="form-check-input"
-                    type="checkbox"
+                    name="optionsRadios"
+                    id="optionsRadios1"
                     value="S&S London Haircut"
                   />
                   <h3>S&S London Haircut</h3>
@@ -73,12 +76,15 @@
                   own Strap and Scraper London product range and our expert
                   industry advice. - £31 (30 mins)
                 </p>
-              </li>
-              <li>
+                </div>
+                
+              <div class="form-check">
                 <label class="form-check-label">
                   <input
                     class="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="optionsRadios"
+                    id="optionsRadios2"
                     value="Grade Zero Skin Fade"
                   />
                   <h3>Grade Zero Skin Fade</h3>
@@ -90,12 +96,14 @@
                   style. Finished with our very own Strap and Scraper London
                   product range and our expert industry advice. - £33 (30 mins)
                 </p>
-              </li>
-              <li>
+              </div>
+              <div class="form-check">
                 <label class="form-check-label">
                   <input
                     class="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="optionsRadios"
+                    id="optionsRadios3"
                     value="One Grade Clipper Cut"
                   />
                   <h3>One Grade Clipper Cut</h3>
@@ -107,12 +115,14 @@
                   Finished with our very own Strap and Scraper London non oily,
                   non stick, Soother Shave Balm. - £20 (15 mins)
                 </p>
-              </li>
-              <li>
+              </div>
+              <div>
                 <label class="form-check-label">
                   <input
                     class="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="optionsRadios"
+                    id="optionsRadios4"
                     value="S&S London Shave"
                   />
                   <h3>S&S London Shave</h3>
@@ -124,24 +134,26 @@
                   and close those pores followed by a second pass across the
                   grain to take it that extra bit closer. - £31 (30 mins)
                 </p>
-              </li>
-            </ul>
+              </div>
+              
           </form>
-        </div>
+        
+      </fieldset>
       </div>
-      <a class="nav-link danger" id="next" href="select-datetime.html">Next</a
-      ><br />
-      <input type="button" onclick="selectStyle()" value="Confirm" />
+      <a class="nav-link danger" id="next" >Next</a
+      >
+      <button type="button" onclick="selectStyle()">Confirm</button>
     </div>
   </body>
   <script>
     function selectStyle() {
-      var style = document.forms[0];
+      var style = document.forms;
       var txt = "";
       var i;
+      window.location.href="select-datetime.html"
       for (i = 0; i < style.length; i++) {
         if (style[i].checked) {
-          txt = txt + style[i].value + " ";
+          txt = txt + style.value + " ";
         }
       }
       console.log("you have chosen " + txt);
