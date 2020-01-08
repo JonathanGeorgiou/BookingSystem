@@ -55,83 +55,96 @@
       <div class="card-header">Please Select Your Service(s)</div>
       <div class="card-body">
         <div class="form-check">
-          <ul>
-            <li>
-              <label class="form-check-label">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <h3>S&S London Haircut</h3>
-              </label>
-              <p>
-                Whatever your preference, a traditional or modern look, either
-                with a soft or sharp finish. A Strong consultation to begin with
-                followed by a wash, cut and style. Finished with our very own
-                Strap and Scraper London product range and our expert industry
-                advice. - £31 (30 mins)
-              </p>
-            </li>
-            <li>
-              <label class="form-check-label">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <h3>Grade Zero Skin Fade</h3>
-              </label>
-              <p>
-                Whatever your preference, high, low or mid fade. Not as close as
-                our foil/razor skin fade but still very close and tight. A
-                Strong consultation to begin with followed by a wash, cut and
-                style. Finished with our very own Strap and Scraper London
-                product range and our expert industry advice. - £33 (30 mins)
-              </p>
-            </li>
-            <li>
-              <label class="form-check-label">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <h3>One Grade Clipper Cut</h3>
-              </label>
-              <p>
-                One grade all over for complete ease and maintenance. For
-                example grade 1 on the top and sides. We wash the hair then go
-                over it again to make sure we have caught every strand. Finished
-                with our very own Strap and Scraper London non oily, non stick,
-                Soother Shave Balm. - £20 (15 mins)
-              </p>
-            </li>
-            <li>
-              <label class="form-check-label">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <h3>S&S London Shave</h3>
-              </label>
-              <p>
-                S&S London Shave Cut throat razor shave to remove that facial
-                hair. Using our Moisturiser Balm and a Shave Cream to prep and
-                rejuvenate the skin. Two hot towels and one cold towel to open
-                and close those pores followed by a second pass across the grain
-                to take it that extra bit closer. - £31 (30 mins)
-              </p>
-            </li>
-          </ul>
-          <a class="nav-link danger" href="select-datetime.html">Next</a>
+          <form>
+            <ul>
+              <li>
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="S&S London Haircut"
+                  />
+                  <h3>S&S London Haircut</h3>
+                </label>
+                <p>
+                  Whatever your preference, a traditional or modern look, either
+                  with a soft or sharp finish. A Strong consultation to begin
+                  with followed by a wash, cut and style. Finished with our very
+                  own Strap and Scraper London product range and our expert
+                  industry advice. - £31 (30 mins)
+                </p>
+              </li>
+              <li>
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="Grade Zero Skin Fade"
+                  />
+                  <h3>Grade Zero Skin Fade</h3>
+                </label>
+                <p>
+                  Whatever your preference, high, low or mid fade. Not as close
+                  as our foil/razor skin fade but still very close and tight. A
+                  Strong consultation to begin with followed by a wash, cut and
+                  style. Finished with our very own Strap and Scraper London
+                  product range and our expert industry advice. - £33 (30 mins)
+                </p>
+              </li>
+              <li>
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="One Grade Clipper Cut"
+                  />
+                  <h3>One Grade Clipper Cut</h3>
+                </label>
+                <p>
+                  One grade all over for complete ease and maintenance. For
+                  example grade 1 on the top and sides. We wash the hair then go
+                  over it again to make sure we have caught every strand.
+                  Finished with our very own Strap and Scraper London non oily,
+                  non stick, Soother Shave Balm. - £20 (15 mins)
+                </p>
+              </li>
+              <li>
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="S&S London Shave"
+                  />
+                  <h3>S&S London Shave</h3>
+                </label>
+                <p>
+                  S&S London Shave Cut throat razor shave to remove that facial
+                  hair. Using our Moisturiser Balm and a Shave Cream to prep and
+                  rejuvenate the skin. Two hot towels and one cold towel to open
+                  and close those pores followed by a second pass across the
+                  grain to take it that extra bit closer. - £31 (30 mins)
+                </p>
+              </li>
+            </ul>
+          </form>
         </div>
       </div>
+      <a class="nav-link danger" id="next" href="select-datetime.html">Next</a
+      ><br />
+      <input type="button" onclick="selectStyle()" value="Confirm" />
     </div>
   </body>
+  <script>
+    function selectStyle() {
+      var style = document.forms[0];
+      var txt = "";
+      var i;
+      for (i = 0; i < style.length; i++) {
+        if (style[i].checked) {
+          txt = txt + style[i].value + " ";
+        }
+      }
+      console.log("you have chosen " + txt);
+    }
+  </script>
 </html>
