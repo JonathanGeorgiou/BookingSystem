@@ -28,12 +28,12 @@ function confirmBooking() {
   let bookingTime = localStorage.getItem("time");
   let hairstyle = localStorage.getItem("style");
 
-  axios.post("http://localhost:8081/createBooking", {
+  axios.post("/createBooking", {
     style: hairstyle,
     timeOfBooking: bookingTime
   });
 
-  axios.post("http://localhost:8081/createCustomer", {
+  axios.post("/createCustomer", {
     firstName: "name",
     lastName: "nameagain",
     email: "emailaddress",
