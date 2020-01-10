@@ -70,9 +70,9 @@
         <input type="text" id="picker" class="form-control" />
       </div>
     </div>
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -92,7 +92,6 @@
       $("#picker").datetimepicker({
         timepicker: true,
         datepicker: true,
-        format: "Y-d-m H:i",
         hours12: false,
         step: 15,
         minTime: "9:00",
@@ -104,9 +103,9 @@
       });
     </script>
     <script>
-      document.getElementById("calendar_button").onclick = function() {
-        location.href = "/enter-details.html";
-      };
+      document
+        .getElementById("calendar_button")
+        .addEventListener("click", () => selectTime());
     </script>
   </body>
 </html>

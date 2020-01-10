@@ -10,6 +10,7 @@ import com.bae.bookingsystem.persistance.domain.Booking;
 import com.bae.bookingsystem.service.BookingService;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -46,7 +47,7 @@ public class BookingController {
         return this.bookingService.findBooking(id);
     }
 
-    @PutMapping("/updateBooking")
+    @PatchMapping("/updateBooking")
     public Booking updateBooking(@PathParam("id") Long id, Booking booking) {
         return this.bookingService.updateBooking(booking, id);
     }

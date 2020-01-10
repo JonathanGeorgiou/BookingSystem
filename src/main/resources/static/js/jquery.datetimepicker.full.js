@@ -3985,7 +3985,7 @@ var datetimepickerFactory = function($) {
         if (
           (timerclick > 1 ||
             options.closeOnDateSelect === true ||
-              (options.closeOnDateSelect === false && !options.timepicker)) &&
+            (options.closeOnDateSelect === false && !options.timepicker)) &&
           !options.inline
         ) {
           datetimepicker.trigger("close.xdsoft");
@@ -4506,7 +4506,8 @@ var datetimepickerFactory = function($) {
             if (
               (key >= KEY0 && key <= KEY9) ||
               (key >= _KEY0 && key <= _KEY9) ||
-              key === BACKSPACE || key === DEL
+              key === BACKSPACE ||
+              key === DEL
             ) {
               // get char to insert which is new character or placeholder ('_')
               digit =

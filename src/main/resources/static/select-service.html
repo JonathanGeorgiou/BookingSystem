@@ -140,23 +140,12 @@
         
       </fieldset>
       </div>
-      <a class="nav-link danger" id="next" >Next</a
-      >
+      
       <button type="button" onclick="selectStyle()">Confirm</button>
     </div>
   </body>
-  <script>
-    function selectStyle() {
-      var style = document.forms[0];
-      var txt = "";
-      var i;
-      window.location.href="select-datetime.html"
-      for (i = 0; i < style.length; i++) {
-        if (style[i].checked) {
-          txt = txt + style.value + " ";
-        }
-      }
-      console.log("you have chosen " + txt);
-    }
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="app.js">
+   
   </script>
 </html>
