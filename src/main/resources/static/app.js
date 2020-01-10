@@ -10,8 +10,8 @@ function selectStyle() {
       //   style: hairstyle,
       //   timeOfBooking: "2012-08-23T18:25:43.511"
       // });
+      alert(hairstyle);
     }
-    alert("You selected " + hairstyle);
     localStorage.setItem("style", hairstyle);
     location.assign("select-datetime.html");
   }
