@@ -27,17 +27,21 @@ function selectTime() {
 function confirmBooking() {
   let bookingTime = localStorage.getItem("time");
   let hairstyle = localStorage.getItem("style");
+  let fName = document.getElementById("first-name");
+  let lName = document.getElementById("last-name");
+  let emailAddress = document.getElementById("email");
+  let phone = document.getElementById("phone-number");
 
-  axios.post("/createBooking", {
+  axios.post("BookingSystem/createBooking", {
     style: hairstyle,
     timeOfBooking: bookingTime
   });
 
-  axios.post("/createCustomer", {
-    firstName: "name",
-    lastName: "nameagain",
-    email: "emailaddress",
-    phoneNumber: "1291029109",
+  axios.post("BookingSystem/createCustomer", {
+    firstName: fName,
+    lastName: lName,
+    email: emailAddress,
+    phoneNumber: phone,
     bookings: [
       {
         style: hairstyle,
