@@ -40,14 +40,7 @@ function confirmBooking() {
   let lName = document.getElementById("inputLastName").value;
   let emailAddress = document.getElementById("inputEmail").value;
   let phone = document.getElementById("inputPhone").value;
-  alert(
-    "name " +
-      fName +
-      lName +
-      "booking time " +
-      bookingTime +
-     
-  );
+  alert("name " + fName + lName + "booking time " + bookingTime);
 
   // axios.post("/BookingSystem/createCustomer", {
   //   firstName: fName,
