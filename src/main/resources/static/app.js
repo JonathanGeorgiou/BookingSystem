@@ -27,6 +27,7 @@ function selectTime() {
 
 function confirmBooking() {
   let bookingTime = new Date(localStorage.getItem("time"));
+  let hairstyle = localStorage.getItem("style");
 
   let fName = document.getElementById("inputFirstName").value;
   let lName = document.getElementById("inputLastName").value;
