@@ -38,18 +38,20 @@ function confirmBooking() {
       style: hairstyle,
       timeOfBooking: bookingTime
     })
-    .then(
-      axios.post("/BookingSystem/createCustomer", {
-        firstName: fName,
-        lastName: lName,
-        email: emailAddress,
-        phoneNumber: phone,
-        bookings: [
-          {
-            style: hairstyle,
-            timeOfBooking: bookingTime
-          }
-        ]
-      })
-    );
+    .then(response => {
+      console.log(response);
+    });
+
+  // axios.post("/BookingSystem/createCustomer", {
+  //   firstName: fName,
+  //   lastName: lName,
+  //   email: emailAddress,
+  //   phoneNumber: phone,
+  //   bookings: [
+  //     {
+  //       style: hairstyle,
+  //       timeOfBooking: bookingTime
+  //     }
+  //   ]
+  // });
 }
