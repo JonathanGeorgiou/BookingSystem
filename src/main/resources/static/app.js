@@ -18,15 +18,24 @@ function selectStyle() {
 }
 
 function selectTime() {
+  let hairstyle = localStorage.getItem("style");
   var bookingTime = new Date($("#picker").val());
   alert(bookingTime);
-  localStorage.setItem("time", bookingTime);
+  // localStorage.setItem("time", bookingTime);
   location.assign("enter-details.html");
+  axios
+    .post("BookingSystem/createBooking", {
+      style: hairstyle,
+      timeOfBooking: bookingTime
+    })
+    .then(response => {
+      console.log(response);
+    });
 }
 
 function confirmBooking() {
   let bookingTime = localStorage.getItem("time");
-  let hairstyle = localStorage.getItem("style");
+
   let fName = document.getElementById("inputFirstName").value;
   let lName = document.getElementById("inputLastName").value;
   let emailAddress = document.getElementById("inputEmail").value;
@@ -40,15 +49,6 @@ function confirmBooking() {
       "hairstyle is " +
       hairstyle
   );
-
-  axios
-    .post("/createBooking", {
-      style: hairstyle,
-      timeOfBooking: bookingTime
-    })
-    .then(response => {
-      console.log(response);
-    });
 
   // axios.post("/BookingSystem/createCustomer", {
   //   firstName: fName,
