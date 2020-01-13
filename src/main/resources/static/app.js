@@ -42,7 +42,7 @@ function confirmBooking() {
   );
 
   axios
-    .post("/BookingSystem/createBooking", {
+    .post("/createBooking", {
       style: hairstyle,
       timeOfBooking: bookingTime
     })
