@@ -35,11 +35,11 @@ function confirmBooking() {
 
   axios
     .post("/BookingSystem/createBooking", {
-      style: hairstyle,
-      timeOfBooking: bookingTime
+      "style": hairstyle,
+      "timeOfBooking": bookingTime
     })
     .then(response => {
-      console.log(response);
+      console.log(response)
     });
 
   // axios.post("/BookingSystem/createCustomer", {
