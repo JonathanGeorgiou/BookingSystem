@@ -31,13 +31,14 @@ function confirmBooking() {
   let lName = document.getElementById("last-name");
   let emailAddress = document.getElementById("email");
   let phone = document.getElementById("phone-number");
+  alert("name " + fName + lName + "booking time " + bookingTime);
 
-  axios.post("BookingSystem/createBooking", {
+  axios.post("/BookingSystem/createBooking", {
     style: hairstyle,
     timeOfBooking: bookingTime
   });
 
-  axios.post("BookingSystem/createCustomer", {
+  axios.post("/BookingSystem/createCustomer", {
     firstName: fName,
     lastName: lName,
     email: emailAddress,
