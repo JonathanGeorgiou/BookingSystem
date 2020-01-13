@@ -31,15 +31,23 @@ function confirmBooking() {
   let lName = document.getElementById("inputLastName").value;
   let emailAddress = document.getElementById("inputEmail").value;
   let phone = document.getElementById("inputPhone").value;
-  alert("name " + fName + lName + "booking time " + bookingTime);
+  alert(
+    "name " +
+      fName +
+      lName +
+      "booking time " +
+      bookingTime +
+      "hairstyle is " +
+      hairstyle
+  );
 
   axios
     .post("/BookingSystem/createBooking", {
-      "style": hairstyle,
-      "timeOfBooking": bookingTime
+      style: hairstyle,
+      timeOfBooking: bookingTime
     })
     .then(response => {
-      console.log(response)
+      console.log(response);
     });
 
   // axios.post("/BookingSystem/createCustomer", {
