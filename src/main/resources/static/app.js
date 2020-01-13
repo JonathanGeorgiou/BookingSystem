@@ -21,8 +21,19 @@ function selectTime() {
   let hairstyle = localStorage.getItem("style");
   var bookingTime = new Date($("#picker").val());
   alert(bookingTime);
-  // localStorage.setItem("time", bookingTime);
+  localStorage.setItem("time", bookingTime);
   location.assign("enter-details.html");
+}
+
+function confirmBooking() {
+  let bookingTime = new Date(localStorage.getItem("time"));
+
+  let fName = document.getElementById("inputFirstName").value;
+  let lName = document.getElementById("inputLastName").value;
+  let emailAddress = document.getElementById("inputEmail").value;
+  let phone = document.getElementById("inputPhone").value;
+  alert("name " + fName + lName + "booking time " + bookingTime);
+
   axios
     .post("BookingSystem/createBooking", {
       style: hairstyle,
@@ -31,27 +42,17 @@ function selectTime() {
     .then(response => {
       console.log(response);
     });
-}
 
-function confirmBooking() {
-  let bookingTime = localStorage.getItem("time");
-
-  let fName = document.getElementById("inputFirstName").value;
-  let lName = document.getElementById("inputLastName").value;
-  let emailAddress = document.getElementById("inputEmail").value;
-  let phone = document.getElementById("inputPhone").value;
-  alert("name " + fName + lName + "booking time " + bookingTime);
-
-  // axios.post("/BookingSystem/createCustomer", {
-  //   firstName: fName,
-  //   lastName: lName,
-  //   email: emailAddress,
-  //   phoneNumber: phone,
-  //   bookings: [
-  //     {
-  //       style: hairstyle,
-  //       timeOfBooking: bookingTime
-  //     }
-  //   ]
-  // });
+  axios.post("/BookingSystem/createCustomer", {
+    firstName: fName,
+    lastName: lName,
+    email: emailAddress,
+    phoneNumber: phone,
+    bookings: [
+      {
+        style: hairstyle,
+        timeOfBooking: bookingTime
+      }
+    ]
+  });
 }
