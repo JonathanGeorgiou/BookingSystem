@@ -46,8 +46,7 @@ function confirmBooking() {
       lName +
       "booking time " +
       bookingTime +
-      "hairstyle is " +
-      hairstyle
+     
   );
 
   // axios.post("/BookingSystem/createCustomer", {
