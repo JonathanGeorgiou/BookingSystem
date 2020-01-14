@@ -33,10 +33,10 @@ function confirmBooking() {
   let lName = document.getElementById("inputLastName").value;
   let emailAddress = document.getElementById("inputEmail").value;
   let phone = document.getElementById("inputPhone").value;
-  alert("name " + fName + lName + "booking time " + bookingTime);
+  alert("name " + fName + " " + lName + "booking time " + bookingTime);
 
   axios
-    .post("BookingSystem/createBooking", {
+    .post("/BookingSystem/createBooking", {
       style: hairstyle,
       timeOfBooking: bookingTime
     })
@@ -44,16 +44,20 @@ function confirmBooking() {
       console.log(response);
     });
 
-  axios.post("/BookingSystem/createCustomer", {
-    firstName: fName,
-    lastName: lName,
-    email: emailAddress,
-    phoneNumber: phone,
-    bookings: [
-      {
-        style: hairstyle,
-        timeOfBooking: bookingTime
-      }
-    ]
-  });
+  axios
+    .post("/BookingSystem/createCustomer", {
+      firstName: fName,
+      lastName: lName,
+      email: emailAddress,
+      phoneNumber: phone,
+      bookings: [
+        {
+          style: hairstyle,
+          timeOfBooking: bookingTime
+        }
+      ]
+    })
+    .then(response => {
+      console.log(response);
+    });
 }
