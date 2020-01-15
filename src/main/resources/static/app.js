@@ -41,7 +41,7 @@ function confirmBooking() {
   //   })
   //   .then()
   axios
-    .post("http://localhost:8081/createCustomer", {
+    .post("/BookingSystem/createCustomer", {
       firstName: fName,
       lastName: lName,
       email: emailAddress,
@@ -57,7 +57,17 @@ function confirmBooking() {
 }
 
 function showBooking() {
-  let customers = axios
-    .get("http://localhost:8081/findAllCustomers")
-    .then(response => console.log(response));
+  axios.get("/BookingSystem/findAllCustomers").then(response => {
+    cust = response.data[response.data.length - 1];
+    let text = document.createElement("p");
+    text.innerHTML =
+      "Thanks for booking with us " +
+      cust.firstName +
+      "!" +
+      " We look forward to seeing you on " +
+      cust.bookings[0].timeOfBooking +
+      ".";
+    let confPage = document.getElementById("confirmation");
+    confPage.appendChild(text);
+  });
 }
