@@ -61,13 +61,14 @@
     <div class="card border-secondary mb-3">
       <div class="card-header">Please Enter Your Details</div>
       <div class="card-body">
-        <form>
+        <form action="confirmation-page.html" onsubmit="confirmBooking()">
           <div class="form-group">
             <input
               type="text"
               class="form-control"
               placeholder="Enter your first name."
               id="inputFirstName"
+              required
             />
           </div>
           <div class="form-group">
@@ -76,6 +77,7 @@
               class="form-control"
               placeholder="Enter your last name."
               id="inputLastName"
+              required
             />
           </div>
           <div class="form-group">
@@ -84,19 +86,22 @@
               class="form-control"
               placeholder="Enter your email address."
               id="inputEmail"
+              required
             />
           </div>
           <div class="form-group">
             <input
               type="tel"
+              pattern="07[0-9]{9}"
               class="form-control"
-              placeholder="Enter your phone number."
+              placeholder="Enter your mobile phone number."
               id="inputPhone"
+              required
             />
           </div>
+          <input type="submit" />
         </form>
       </div>
-      <button type="button" onclick="confirmBooking()">Book!</button>
     </div>
   </body>
   <script src="app.js"></script>
