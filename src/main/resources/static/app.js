@@ -41,7 +41,7 @@ function confirmBooking() {
   //   })
   //   .then()
   axios
-    .post("/BookingSystem/createCustomer", {
+    .post("http://localhost:8081/createCustomer", {
       firstName: fName,
       lastName: lName,
       email: emailAddress,
@@ -57,17 +57,45 @@ function confirmBooking() {
 }
 
 function showBooking() {
-  axios.get("/BookingSystem/findAllCustomers").then(response => {
+  axios.get("http://localhost:8081/findAllCustomers").then(response => {
     cust = response.data[response.data.length - 1];
+    let appmntDate = new Date(cust.bookings[0].timeOfBooking);
     let text = document.createElement("p");
     text.innerHTML =
       "Thanks for booking with us " +
       cust.firstName +
       "!" +
       " We look forward to seeing you on " +
-      cust.bookings[0].timeOfBooking +
+      appmntDate.toDateString() +
+      " at " +
+      appmntDate.toTimeString().substring(0, 5) +
       ".";
     let confPage = document.getElementById("confirmation");
     confPage.appendChild(text);
+  });
+}
+
+function disableTimes(selected) {
+  axios.get("http://localhost:8081/findAllBookings").then(response => {
+    let bookings = response.data;
+    let times = [];
+    let days = [];
+    for (let i of bookings) {
+      var bt = new Date(i.timeOfBooking);
+      days.push(bt.toUTCString());
+    }
+    if (days.includes(selected)) {
+      alert("Sorry the time you have selected is taken.");
+    }
+
+    // days.push(
+    //   String(bt.getDate()).padStart(2, "0") +
+    //     "/" +
+    //     String(bt.getMonth()).padStart(2, "0") +
+    //     "/" +
+    //     String(bt.getFullYear())
+    // );
+    // times.push(bt.getHours() + ":" + bt.getMinutes() + 0);
+    // }
   });
 }

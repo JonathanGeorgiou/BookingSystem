@@ -99,7 +99,31 @@
         minDate: 0,
         inline: true,
         disabledWeekDays: [1],
-        showApplyButton: true
+        showApplyButton: true,
+        defaultSelect: false,
+        allowTimes: [
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00"
+        ],
+        onSelectDate: function($input) {
+          disableTimes($input.toUTCString());
+
+          // disableTimes(
+          //   String($input.getDate()).padStart(2, "0") +
+          //     "/" +
+          //     String($input.getMonth() + 1).padStart(2, "0") +
+          //     "/" +
+          //     String($input.getFullYear(2, "0"))
+          // );
+        }
       });
     </script>
     <script>
