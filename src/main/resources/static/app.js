@@ -13,7 +13,6 @@ function selectStyle() {
 
 function selectTime() {
   var bookingTime = new Date($("#picker").val());
-  alert(bookingTime);
   localStorage.setItem("time", bookingTime);
   location.assign("enter-details.html");
 }
