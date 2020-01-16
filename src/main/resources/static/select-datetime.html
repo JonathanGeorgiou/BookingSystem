@@ -70,6 +70,7 @@
         <input type="text" id="picker" class="form-control" />
       </div>
     </div>
+    <script src="consts.js"></script>
     <script src="app.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -113,8 +114,8 @@
           "17:00",
           "18:00"
         ],
-        onSelectDate: function($input) {
-          disableTimes($input.toUTCString());
+        onSelectTime: function($input) {
+          disableTimes($input);
         }
       });
     </script>

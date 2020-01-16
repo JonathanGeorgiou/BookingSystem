@@ -10,7 +10,6 @@ function selectStyle() {
       //   style: hairstyle,
       //   timeOfBooking: "2012-08-23T18:25:43.511"
       // });
-      alert(hairstyle);
     }
     localStorage.setItem("style", hairstyle);
     location.assign("select-datetime.html");
@@ -32,16 +31,9 @@ function confirmBooking() {
   let lName = document.getElementById("inputLastName").value;
   let emailAddress = document.getElementById("inputEmail").value;
   let phone = document.getElementById("inputPhone").value;
-  alert("name " + fName + " " + lName + " booking time " + bookingTime);
 
-  // axios
-  //   .post("http://localhost:8081/createBooking", {
-  //     style: hairstyle,
-  //     timeOfBooking: bookingTime
-  //   })
-  //   .then()
   axios
-    .post("/BookingSystem/createCustomer", {
+    .post(PATH + "createCustomer", {
       firstName: fName,
       lastName: lName,
       email: emailAddress,
@@ -57,7 +49,7 @@ function confirmBooking() {
 }
 
 function showBooking() {
-  axios.get("/BookingSystem/findAllCustomers").then(response => {
+  axios.get(PATH + "findAllCustomers").then(response => {
     cust = response.data[response.data.length - 1];
     let appmntDate = new Date(cust.bookings[0].timeOfBooking);
     let text = document.createElement("p");
@@ -75,17 +67,25 @@ function showBooking() {
   });
 }
 
-function disableTimes(selected) {
-  axios.get("/BookingSystem/findAllBookings").then(response => {
+function disableTimes(data) {
+  axios.get(PATH + "findAllBookings").then(response => {
+    let selected = data.toUTCString().substring(0, 22);
     let bookings = response.data;
     let times = [];
     let days = [];
     for (let i of bookings) {
       var bt = new Date(i.timeOfBooking);
-      days.push(bt.toUTCString());
+      days.push(bt.toUTCString().substring(0, 22));
     }
     if (days.includes(selected)) {
       alert("Sorry the time you have selected is taken.");
+      $("#picker").datetimepicker({
+        showApplyButton: false
+      });
+    } else {
+      $("#picker").datetimepicker({
+        showApplyButton: true
+      });
     }
 
     // days.push(
