@@ -44,7 +44,7 @@ function confirmBooking() {
 
 function showBooking() {
   axios.get(PATH + "findAllCustomers").then(response => {
-    cust = response.data[response.data.length - 1];
+    let cust = response.data[response.data.length - 1];
     let appmntDate = new Date(cust.bookings[0].timeOfBooking);
     let text = document.createElement("p");
     text.innerHTML =
@@ -56,7 +56,7 @@ function showBooking() {
       " at " +
       appmntDate.toTimeString().substring(0, 5) +
       ".";
-    let confPage = document.getElementById("confirmation");
+    let confPage = document.getElementById("message");
     confPage.appendChild(text);
   });
 }
@@ -81,5 +81,16 @@ function disableTimes(data) {
         showApplyButton: true
       });
     }
+  });
+}
+function deleteBooking() {
+  axios.get(PATH + "findAllCustomers").then(response => {
+    let cust = response.data[response.data.length - 1];
+    axios.delete(PATH + "deleteCustomer/" + cust.id).then(response => {
+      alert(
+        cust.firstName + " " + cust.lastName + "'s booking has been canceled"
+      );
+      location.assign("index.html");
+    });
   });
 }
