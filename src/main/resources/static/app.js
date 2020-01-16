@@ -5,11 +5,6 @@ function selectStyle() {
   for (var i = 0; i < styleOptions.length; i++) {
     if (styleOptions[i].checked) {
       hairstyle = hairstyle + styleOptions[i].value;
-      // alert("you selected " + hairstyle);
-      // axios.post("http://localhost:8081/createBooking", {
-      //   style: hairstyle,
-      //   timeOfBooking: "2012-08-23T18:25:43.511"
-      // });
     }
     localStorage.setItem("style", hairstyle);
     location.assign("select-datetime.html");
@@ -87,15 +82,5 @@ function disableTimes(data) {
         showApplyButton: true
       });
     }
-
-    // days.push(
-    //   String(bt.getDate()).padStart(2, "0") +
-    //     "/" +
-    //     String(bt.getMonth()).padStart(2, "0") +
-    //     "/" +
-    //     String(bt.getFullYear())
-    // );
-    // times.push(bt.getHours() + ":" + bt.getMinutes() + 0);
-    // }
   });
 }
