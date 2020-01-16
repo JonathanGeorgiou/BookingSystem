@@ -57,7 +57,7 @@ function confirmBooking() {
 }
 
 function showBooking() {
-  axios.get("http://localhost:8081/findAllCustomers").then(response => {
+  axios.get("/BookingSystem/findAllCustomers").then(response => {
     cust = response.data[response.data.length - 1];
     let appmntDate = new Date(cust.bookings[0].timeOfBooking);
     let text = document.createElement("p");
@@ -76,7 +76,7 @@ function showBooking() {
 }
 
 function disableTimes(selected) {
-  axios.get("http://localhost:8081/findAllBookings").then(response => {
+  axios.get("/BookingSystem/findAllBookings").then(response => {
     let bookings = response.data;
     let times = [];
     let days = [];
