@@ -67,7 +67,7 @@
         <h3>Please Select Your Time</h3>
       </div>
       <div class="container mt-5 mb-5" id="calendar" style="width: 400px">
-        <input type="text" id="picker" class="form-control" />
+        <input type="text" id="picker" class="form-control" required />
       </div>
     </div>
     <script src="consts.js"></script>
@@ -102,6 +102,7 @@
         disabledWeekDays: [1],
         showApplyButton: true,
         defaultSelect: false,
+        allowBlank: false,
         allowTimes: [
           "09:00",
           "10:00",
