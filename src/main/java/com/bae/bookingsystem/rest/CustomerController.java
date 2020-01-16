@@ -3,13 +3,13 @@ package com.bae.bookingsystem.rest;
 import java.util.List;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import com.bae.bookingsystem.persistance.domain.Customer;
 import com.bae.bookingsystem.service.CustomerService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -47,8 +47,8 @@ public class CustomerController {
         return this.customerService.findCustomer(id);
     }
 
-    @PutMapping("/updateCustomer")
-    public Customer updateCustomer(@PathParam("id") Long id, @RequestBody Customer customer) {
+    @PutMapping("/updateCustomer/{id}")
+    public Customer updateCustomer(@PathVariable("id") Long id, @RequestBody Customer customer) {
         return this.customerService.updateCustomer(customer, id);
     }
 
