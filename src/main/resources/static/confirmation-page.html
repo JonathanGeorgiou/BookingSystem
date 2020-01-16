@@ -56,15 +56,28 @@
     <div class="card border-secondary mb-3">
       <div class="card-header">Thanks For Booking!</div>
       <div class="card-body" id="confirmation">
+        <br />
+        <br />
         <div id="message"></div>
+
         <div>
           <p>
-            Please check your details, if they are incorrect click update, or if
-            you wish to cancel, press cancel.
+            Please check that your email address is correct so we can send you
+            confirmation, if it is incorrect click change email. If you wish to
+            cancel your appointment, press cancel.
           </p>
         </div>
-        <button type="button" onclick="deleteBooking()">Cancel</button>
-        <button type="button" onclick="updateBooking()">Update</button>
+
+        <br />
+        <button type="button" onclick="generateForm()">Change Email</button>
+        <button type="button" onclick="deleteBooking()">
+          Cancel Appointment
+        </button>
+
+        <br />
+        <form onsubmit="updateEmail()">
+          <div class="form-group" id="email-input"></div>
+        </form>
       </div>
     </div>
   </body>
