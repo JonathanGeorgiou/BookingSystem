@@ -41,7 +41,7 @@ function confirmBooking() {
   //   })
   //   .then()
   axios
-    .post("http://localhost:8081/createCustomer", {
+    .post("/BookingSystem/createCustomer", {
       firstName: fName,
       lastName: lName,
       email: emailAddress,
