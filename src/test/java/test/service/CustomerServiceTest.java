@@ -43,7 +43,7 @@ public class CustomerServiceTest {
     final long id = 1L;
 
     @Before
-    public void initialiser() {
+    public void init() {
         this.custList = new ArrayList<>();
         this.custList.add(testCustomer);
         this.bookingList = new ArrayList<>();

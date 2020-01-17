@@ -31,16 +31,4 @@ public class BookingService {
         return this.bookingRepo.findAll();
     }
 
-    public Booking updateBooking(Booking booking, Long id) {
-        Booking bookingToUpdate = findBooking(id);
-        bookingToUpdate.setStyle(booking.getStyle());
-        bookingToUpdate.setTimeOfBooking(booking.getTimeOfBooking());
-        return this.bookingRepo.save(bookingToUpdate);
-    }
-
-    public String deleteBooking(Long id) {
-        this.bookingRepo.deleteById(id);
-        return "Booking succesfully deleted.";
-    }
-
 }
