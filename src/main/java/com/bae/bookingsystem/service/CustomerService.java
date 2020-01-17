@@ -53,7 +53,6 @@ public class CustomerService {
 
         this.customerRepo.deleteById(id);
         return this.customerRepo.existsById(id);
-
     }
 
 }
