@@ -1,6 +1,7 @@
 package com.bae.bookingsystem.persistance.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -28,6 +29,32 @@ public class Customer {
     private List<Booking> bookings;
 
     public Customer() {
+    }
+
+    public Customer(String firstName, String lastName, String email, String phoneNumber, List<Booking> bookings) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.bookings = bookings;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Customer)) {
+            return false;
+        }
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id) && Objects.equals(firstName, customer.firstName)
+                && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email)
+                && Objects.equals(phoneNumber, customer.phoneNumber) && Objects.equals(bookings, customer.bookings);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, phoneNumber, bookings);
     }
 
     public List<Booking> getBookings() {

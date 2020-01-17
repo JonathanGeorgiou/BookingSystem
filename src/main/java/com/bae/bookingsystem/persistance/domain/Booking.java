@@ -22,6 +22,11 @@ public class Booking {
     public Booking() {
     }
 
+    public Booking(String style, LocalDateTime timeOfBooking) {
+        this.style = style;
+        this.timeOfBooking = timeOfBooking;
+    }
+
     public String getStyle() {
         return this.style;
     }
