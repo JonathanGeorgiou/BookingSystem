@@ -42,30 +42,10 @@ function confirmBooking() {
     .then(location.assign("confirmation-page.html"));
 }
 
-function showBooking() {
-  axios.get(PATH + "findAllCustomers").then(response => {
-    cust = response.data[response.data.length - 1];
-    let appmntDate = new Date(cust.bookings[0].timeOfBooking);
-    let text = document.createElement("p");
-    text.innerHTML =
-      "Thanks for booking with us " +
-      cust.firstName +
-      "!" +
-      " We look forward to seeing you on " +
-      appmntDate.toDateString() +
-      " at " +
-      appmntDate.toTimeString().substring(0, 5) +
-      ".";
-    let confPage = document.getElementById("confirmation");
-    confPage.appendChild(text);
-  });
-}
-
 function disableTimes(data) {
   axios.get(PATH + "findAllBookings").then(response => {
     let selected = data.toUTCString().substring(0, 22);
     let bookings = response.data;
-    let times = [];
     let days = [];
     for (let i of bookings) {
       var bt = new Date(i.timeOfBooking);
@@ -81,5 +61,69 @@ function disableTimes(data) {
         showApplyButton: true
       });
     }
+  });
+}
+function showBooking() {
+  axios.get(PATH + "findAllCustomers").then(response => {
+    let cust = response.data[response.data.length - 1];
+    let appmntDate = new Date(cust.bookings[0].timeOfBooking);
+    let text = document.createElement("p");
+    text.innerHTML =
+      "Thanks for booking with us " +
+      cust.firstName +
+      "!" +
+      " We look forward to seeing you on " +
+      appmntDate.toDateString() +
+      " at " +
+      appmntDate.toTimeString().substring(0, 5) +
+      ". Just to confirm, your email is " +
+      cust.email +
+      ".";
+    let confPage = document.getElementById("message");
+    confPage.appendChild(text);
+  });
+}
+
+function deleteBooking() {
+  axios.get(PATH + "findAllCustomers").then(response => {
+    let cust = response.data[response.data.length - 1];
+    axios.delete(PATH + "deleteCustomer/" + cust.id).then(response => {
+      alert(
+        cust.firstName + " " + cust.lastName + "'s booking has been canceled"
+      );
+      location.assign("index.html");
+    });
+  });
+}
+
+function generateForm() {
+  let emailEntry = document.createElement("input");
+  emailEntry.type = "email";
+  emailEntry.placeholder = "Please enter your email.";
+  emailEntry.id = "updated-email";
+
+  let emailConfirm = document.createElement("input");
+  emailConfirm.type = "submit";
+  // emailConfirm.onclick = updateEmail();
+
+  let updateDiv = document.getElementById("email-input");
+  updateDiv.appendChild(emailEntry);
+  updateDiv.appendChild(emailConfirm);
+}
+
+function updateEmail() {
+  let newEmail = document.getElementById("updated-email").value;
+  console.log(newEmail);
+  axios.get(PATH + "findAllCustomers").then(response => {
+    let cust = response.data[response.data.length - 1];
+    axios
+      .put(PATH + "updateCustomer/" + cust.id, {
+        firstName: cust.firstName,
+        lastName: cust.lastName,
+        email: newEmail,
+        phoneNumber: cust.phoneNumber,
+        bookings: cust.bookings
+      })
+      .then(alert("Email has been changed to " + newEmail));
   });
 }

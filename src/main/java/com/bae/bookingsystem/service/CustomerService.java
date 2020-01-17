@@ -2,6 +2,7 @@ package com.bae.bookingsystem.service;
 
 import java.util.List;
 
+import com.bae.bookingsystem.exceptions.CustomerNotFoundException;
 import com.bae.bookingsystem.persistance.domain.Customer;
 
 import com.bae.bookingsystem.persistance.repo.CustomerRepo;
@@ -16,8 +17,6 @@ import org.springframework.stereotype.Service;
 public class CustomerService {
 
     private CustomerRepo customerRepo;
-
-    private Customer customer;
 
     @Autowired
     public CustomerService(CustomerRepo customerRepo) {
@@ -47,10 +46,13 @@ public class CustomerService {
         return this.customerRepo.save(custToUpdate);
     }
 
-    public String deleteCustomer(Long id) {
-        customer = this.customerRepo.findById(id).get();
+    public boolean deleteCustomer(Long id) {
+        if (!this.customerRepo.existsById(id)) {
+            throw new CustomerNotFoundException();
+        }
+
         this.customerRepo.deleteById(id);
-        return customer.getFirstName() + " " + customer.getLastName() + " has been deleted from the database.";
+        return this.customerRepo.existsById(id);
     }
 
 }
