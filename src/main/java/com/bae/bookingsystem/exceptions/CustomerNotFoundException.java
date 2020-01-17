@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "This duck does not exist")
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "That customer was not found in the database.")
 public class CustomerNotFoundException extends EntityNotFoundException {
 
     /**
