@@ -71,7 +71,7 @@ public class CustomerControllerTest {
 
     @Test
     public void findCustomerByIdTest() {
-        when(this.custService.findCustomer(this.id)).thenReturn(this.testCustomer);
+        when(this.custService.findCustomer(this.id)).thenReturn(this.confirmedCustomer);
         assertEquals(this.confirmedCustomer, this.custController.findCustomerById(this.id));
         verify(this.custService, times(1)).findCustomer(this.id);
     }
