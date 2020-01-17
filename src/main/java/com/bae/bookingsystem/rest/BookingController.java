@@ -3,7 +3,6 @@ package com.bae.bookingsystem.rest;
 import java.util.List;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import com.bae.bookingsystem.persistance.domain.Booking;
 
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -47,8 +45,4 @@ public class BookingController {
         return this.bookingService.findBooking(id);
     }
 
-    @PutMapping("/updateBooking")
-    public Booking updateBooking(@PathParam("id") Long id, Booking booking) {
-        return this.bookingService.updateBooking(booking, id);
-    }
 }
