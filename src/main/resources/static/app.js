@@ -66,6 +66,7 @@ function disableTimes(data) {
 function showBooking() {
   axios.get(PATH + "findAllCustomers").then(response => {
     let cust = response.data[response.data.length - 1];
+    console.log(cust);
     let appmntDate = new Date(cust.bookings[0].timeOfBooking);
     let text = document.createElement("p");
     text.innerHTML =
@@ -104,7 +105,6 @@ function generateForm() {
 
   let emailConfirm = document.createElement("input");
   emailConfirm.type = "submit";
-  // emailConfirm.onclick = updateEmail();
 
   let updateDiv = document.getElementById("email-input");
   updateDiv.appendChild(emailEntry);
@@ -116,6 +116,7 @@ function updateEmail() {
   console.log(newEmail);
   axios.get(PATH + "findAllCustomers").then(response => {
     let cust = response.data[response.data.length - 1];
+
     axios
       .put(PATH + "updateCustomer/" + cust.id, {
         firstName: cust.firstName,
@@ -124,6 +125,9 @@ function updateEmail() {
         phoneNumber: cust.phoneNumber,
         bookings: cust.bookings
       })
-      .then(alert("Email has been changed to " + newEmail));
+      .then(res => {
+        alert("Email has been changed to " + newEmail);
+        location.assign("index.html");
+      });
   });
 }
