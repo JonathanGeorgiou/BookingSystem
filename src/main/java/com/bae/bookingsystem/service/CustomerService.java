@@ -29,7 +29,7 @@ public class CustomerService {
     }
 
     public Customer findCustomer(Long id) {
-        return this.customerRepo.findById(id).get();
+        return this.customerRepo.findById(id).orElseThrow(CustomerNotFoundException::new);
     }
 
     public List<Customer> readCustomers() {

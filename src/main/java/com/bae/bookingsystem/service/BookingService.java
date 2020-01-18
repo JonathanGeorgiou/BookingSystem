@@ -2,6 +2,7 @@ package com.bae.bookingsystem.service;
 
 import java.util.List;
 
+import com.bae.bookingsystem.exceptions.BookingNotFoundException;
 import com.bae.bookingsystem.persistance.domain.Booking;
 import com.bae.bookingsystem.persistance.repo.BookingRepo;
 
@@ -24,7 +25,7 @@ public class BookingService {
     }
 
     public Booking findBooking(Long id) {
-        return this.bookingRepo.findById(id).get();
+        return this.bookingRepo.findById(id).orElseThrow(BookingNotFoundException::new);
     }
 
     public List<Booking> readBookings() {
