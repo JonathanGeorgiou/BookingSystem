@@ -103,3 +103,17 @@ body {
   left: 540px;
 }
 
+#details-input{
+  position: relative;
+  left: 540px;
+}
+
+#cancel-button{
+  position: relative;
+  left: 170px;
+}
+
+#update-button{
+  position:relative;
+  left: 150px;
+}
