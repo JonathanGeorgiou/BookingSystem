@@ -11,6 +11,6 @@ public class CustomerNotFoundException extends EntityNotFoundException {
     /**
      *
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -2378273829382372232L;
 
 }
