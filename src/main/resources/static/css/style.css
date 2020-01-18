@@ -87,3 +87,19 @@ body {
 * {
   box-sizing: border-box;
 }
+
+#style-confirm{
+  position: relative;
+  left: 540px;
+}
+
+#updated-email{
+  margin-top: 20px;
+}
+
+#submit-updated-email{
+  margin-top: 10px;
+  position: relative;
+  left: 540px;
+}
+

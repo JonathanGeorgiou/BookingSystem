@@ -10,9 +10,13 @@ function selectStyle() {
     location.assign("select-datetime.html");
   }
 }
+function timeTest(){
+  let time = new Date($("#picker").val());
+  console.log(time);
+}
 
 function selectTime() {
-  var bookingTime = new Date($("#picker").val());
+  let bookingTime = new Date($("#picker").val());
   localStorage.setItem("time", bookingTime);
   location.assign("enter-details.html");
 }
@@ -66,7 +70,6 @@ function disableTimes(data) {
 function showBooking() {
   axios.get(PATH + "findAllCustomers").then(response => {
     let cust = response.data[response.data.length - 1];
-    console.log(cust);
     let appmntDate = new Date(cust.bookings[0].timeOfBooking);
     let text = document.createElement("p");
     text.innerHTML =
@@ -101,10 +104,13 @@ function generateForm() {
   let emailEntry = document.createElement("input");
   emailEntry.type = "email";
   emailEntry.placeholder = "Please enter your email.";
+  emailEntry.className = "form-control";
   emailEntry.id = "updated-email";
 
   let emailConfirm = document.createElement("input");
   emailConfirm.type = "submit";
+  emailConfirm.className = "btn btn-primary";
+  emailConfirm.id = "submit-updated-email";
 
   let updateDiv = document.getElementById("email-input");
   updateDiv.appendChild(emailEntry);
@@ -131,3 +137,4 @@ function updateEmail() {
       });
   });
 }
+
