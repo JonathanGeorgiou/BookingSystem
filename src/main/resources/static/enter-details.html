@@ -86,6 +86,8 @@
             <input
               type="tel"
               pattern="07[0-9]{9}"
+              oninvalid="setCustomValidity('Please enter a valid UK mobile number.')"
+              onchange="try{setCustomValidity('')}catch(e){}"
               class="form-control"
               placeholder="Enter your mobile phone number."
               id="inputPhone"
