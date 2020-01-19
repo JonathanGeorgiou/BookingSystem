@@ -1,5 +1,4 @@
 # Booking System 
-
 <p align="centre">
 <img src="https://github.com/JonathanGeorgiou/BookingSystem/blob/master/src/main/resources/static/img/logo.jpg" width="340" height="80"/> </p>
 A simple booking system for a barber shop with full CRUD functionality for creating, reading, updating and deleting customers.
@@ -9,6 +8,7 @@ A simple booking system for a barber shop with full CRUD functionality for creat
 * [Technologies](#tech)
 * [Testing](#test)
 * [Browser Support](#support)
+* [Author](#author)
 
 
 <a name="intro"></a>
@@ -31,7 +31,7 @@ their personal details. After creating the booking they are then able to update 
 <a name="test"></a>
 ## Testing
 Unit Testing done with JUnit and Mockito with 83% line coverage.
- See [Surefire Report](https://github.com/JonathanGeorgiou/BookingSystem/blob/master/Docs/Surefire%20Report.pdf).
+ See [Surefire Report](https://github.com/JonathanGeorgiou/BookingSystem/blob/master/Docs/Surefire%20Report.pdf) and [IntelliJ Coverage Report](https://github.com/JonathanGeorgiou/BookingSystem/blob/master/Docs/Coverage%20Report%20__%20Summary.pdf)
 
 <a name="support"></a>
 ## Browser Support ##
