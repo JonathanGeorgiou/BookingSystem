@@ -1,5 +1,8 @@
-# Booking System
-A simple booking system for a barber shop.
+# Booking System 
+
+<p align="centre">
+<img src="https://github.com/JonathanGeorgiou/BookingSystem/blob/master/src/main/resources/static/img/logo.jpg" width="340" height="80"/> </p>
+A simple booking system for a barber shop with full CRUD functionality for creating, reading, updating and deleting customers.
 
 ## Contents
 * [Intro](#intro)
@@ -10,7 +13,7 @@ A simple booking system for a barber shop.
 
 <a name="intro"></a>
 ## Intro
-My goal was to make an OOP application with full CRUD functionality. I have made a simple booking system for a barber shop
+My goal was to make an OOP application that that functions as a simple booking system for a barber shop
 The application supports creating new customers and boookings and storing them in an H2 database. 
 The plan is to upgrade the database to a more permanent one such as MySQL in the future. The customer is able to browse the
 app to find information about the shop, such as the barbers that work there and the hairstyles on offer, and then they are
