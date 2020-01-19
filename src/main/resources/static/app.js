@@ -17,8 +17,13 @@ function timeTest(){
 
 function selectTime() {
   let bookingTime = new Date($("#picker").val());
-  localStorage.setItem("time", bookingTime);
-  location.assign("enter-details.html");
+  if(bookingTime.toString().substring(0, 21) === (Date().substring(0, 21))){
+    alert("Please select a time.");
+  }else {
+    localStorage.setItem("time", bookingTime);
+    location.assign("enter-details.html");
+  }
+
 }
 
 function confirmBooking() {
