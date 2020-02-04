@@ -111,7 +111,7 @@
     <repositories>
         <repository>
             <id>mvnGroup</id>
-            <url>http://3.11.84.155:8081/repository/tomato-proxy/</url>
+            <url>http://3.11.84.155:8081/repository/tomato-hosted/</url>
         </repository>
     </repositories>
     <distributionManagement>
