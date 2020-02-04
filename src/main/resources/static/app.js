@@ -9,6 +9,7 @@ function selectStyle() {
     localStorage.setItem("style", hairstyle);
     location.assign("select-datetime.html");
   }
+
 }
 function timeTest(){
   let time = new Date($("#picker").val());
