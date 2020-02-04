@@ -83,9 +83,6 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <configuration>
-                        <executable>true</executable>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
@@ -111,12 +108,21 @@
 
 
     </build>
-  <distributionManagement>
-               <snapshotRepository>
-            <id>nexus</id>
-            <name>maven-snapshots</name>
-            <url>http://3.11.84.155:8081/repository/tomatoes-hosted/</url>
+    <repositories>
+        <repository>
+            <id>mvnGroup</id>
+            <url>http://3.11.84.155:8081/repository/tomato-proxy/</url>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://3.11.84.155:8081/repository/tomato-hosted/</url>
         </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://3.11.84.155:8081/repository/tomato-hosted/</url>
+        </repository>
     </distributionManagement>
 
 
