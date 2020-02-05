@@ -1,12 +1,13 @@
 pipeline {
     agent any
 
-     node {
-                    checkout scm
-            }
 
     stages {
-
+        stage('--clone--'){
+        node {
+                            checkout scm
+                    }
+}
         stage('---clean---') {
             steps {
                 sh "mvn clean"
