@@ -28,14 +28,14 @@ pipeline {
                    }
         }
 
-                }
+
         stage('--docker-publish--') {
             steps {
                 withDockerRegistry([ credentialsId: "jonDH", url: "" ]) {
                 sh 'docker push jonathangeorgiou/devopsproject:latest'
-
+                }
             }
-        }
 
         }
     }
+ }
