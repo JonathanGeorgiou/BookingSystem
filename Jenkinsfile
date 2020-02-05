@@ -21,10 +21,6 @@ pipeline {
                         sh "mvn deploy"
                     }
                 }
-        stage('--seperating-frontend-backend--'){
-                    steps{
-                        }
-                }
         stage('--docker-build--') {
                     steps {
                         sh 'docker build -t jonathangeorgiou/devopsproject .'
