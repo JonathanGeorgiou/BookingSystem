@@ -3,11 +3,7 @@ pipeline {
 
 
     stages {
-        stage('--clone--') {
-                steps {node {
-                            checkout scm
-                    }}
-}
+
         stage('---clean---') {
             steps {
                 sh "mvn clean"
