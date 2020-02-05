@@ -3,10 +3,10 @@ pipeline {
 
 
     stages {
-        stage('--clone--'){
-        node {
+        stage('--clone--') {
+                steps {node {
                             checkout scm
-                    }
+                    }}
 }
         stage('---clean---') {
             steps {
