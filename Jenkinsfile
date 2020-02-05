@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    dir('project') {
-        checkout scm
-    }
+
     stages {
         stage('---clean---') {
             steps {
