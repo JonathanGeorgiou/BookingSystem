@@ -21,5 +21,19 @@ pipeline {
                         sh "mvn deploy"
                     }
                 }
-    }
-}
+
+        stage('--docker-build--') {
+                    steps {
+                        sh 'docker build -t jonathangeorgiou/bookingsystem .'
+                    }
+                }
+        stage('--docker-publish--') {
+                    steps {
+                        withDockerRegistry([ credentialsId: "jonDH", url: "" ]) {
+                        sh 'docker push jonathangeorgiou/bookingsystem:latest'
+                    }
+                }
+
+        }
+     }
+ }
