@@ -2,6 +2,9 @@ pipeline {
     agent any
 
     stages {
+        node {
+                checkout scm
+        }
         stage('---clean---') {
             steps {
                 sh "mvn clean"
@@ -28,7 +31,6 @@ pipeline {
                        sh 'docker build -t jonathangeorgiou/devopsproject .'
                    }
         }
-
 
         stage('--docker-publish--') {
             steps {
