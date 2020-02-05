@@ -21,16 +21,19 @@ pipeline {
                         sh "mvn deploy"
                     }
                 }
-
+        stage('--seperating-frontend-backend--'){
+                    steps{
+                        }
+                }
         stage('--docker-build--') {
                     steps {
-                        sh 'docker build -t jonathangeorgiou/bookingsystem .'
+                        sh 'docker build -t jonathangeorgiou/devopsproject .'
                     }
                 }
         stage('--docker-publish--') {
                     steps {
                         withDockerRegistry([ credentialsId: "jonDH", url: "" ]) {
-                        sh 'docker push jonathangeorgiou/bookingsystem:latest'
+                        sh 'docker push jonathangeorgiou/devopsproject:latest'
                     }
                 }
 
