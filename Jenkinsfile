@@ -37,6 +37,7 @@ pipeline {
                 sh 'docker push jonathangeorgiou/devopsproject:latest'
                 }
             }
+            }
 
         stage('--terraform--'){
             steps{
