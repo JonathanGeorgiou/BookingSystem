@@ -38,19 +38,18 @@ pipeline {
                 }
             }
             }
-
         stage('--terraform--'){
             steps{
                 sh 'cd /home/ubuntu/'
                 sh 'git clone https://github.com/jkiesslinger/SeleniumGrid.git'
                 sh 'cd /home/ubuntu/SeleniumGrid/'
-                sh 'terraform init'
-                sh 'terraform apply'
+                sh 'sudo terraform init'
+                sh 'sudo terraform apply'
                 timeout(time: 2, unit: "HOURS") {
                     input message: 'Approve Testing?', ok: 'Yes'
                 }
-                sh 'mvn clean test'
-                sh 'terraform destroy'
+                sh 'sudo mvn clean test'
+                sh 'sudo terraform destroy'
                 }
                 }
 
