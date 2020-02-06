@@ -38,51 +38,7 @@ pipeline {
                 }
             }
             }
-            stage('Set Terraform path') {
-             steps {
-             script {
-             def tfHome = tool name: 'Terraform'
-             env.PATH = "${tfHome}:${env.PATH}"
-             }
-             sh 'terraform — version'
-             }
-             }
-             stage('Provision infrastructure') {
-             steps {
-             dir('dev')
-             {
-             sh 'terraform init'
-             sh 'terraform plan -out=plan'
-             // sh 'terraform destroy -auto-approve'
-             sh 'terraform apply plan'
-             }
-             }
-             }
-        stage('--terraform--'){
-            steps{
 
-
-
-
-
-
-
-
-
-
-
-                dir("./SeleniumGrid/"){
-                sh 'terraform init'
-                sh 'terraform apply'
-                timeout(time: 2, unit: "HOURS") {
-                    input message: 'Approve Testing?', ok: 'Yes'
-                }
-                sh 'mvn clean test'
-                sh 'terraform destroy'
-                }
-
-                }
-                }
 
         }
     }
