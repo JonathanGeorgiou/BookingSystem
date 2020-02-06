@@ -40,10 +40,6 @@ pipeline {
             }
         stage('--terraform--'){
             steps{
-            dir("/home/ubuntu/"){
-            sh 'sudo rm -rf SeleniumGrid/'
-            sh 'git clone https://github.com/jkiesslinger/SeleniumGrid.git'
-            }
                 dir("/home/ubuntu/SeleniumGrid/"){
                 sh 'sudo terraform init'
                                 sh 'sudo terraform apply'
