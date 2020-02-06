@@ -40,14 +40,14 @@ pipeline {
             }
         stage('--terraform--'){
             steps{
-                dir("/home/ubuntu/SeleniumGrid/"){
+                dir("./SeleniumGrid/"){
                 sh 'sudo terraform init'
-                                sh 'sudo terraform apply'
-                                timeout(time: 2, unit: "HOURS") {
-                                    input message: 'Approve Testing?', ok: 'Yes'
-                                }
-                                sh 'sudo mvn clean test'
-                                sh 'sudo terraform destroy'
+                sh 'sudo terraform apply'
+                timeout(time: 2, unit: "HOURS") {
+                    input message: 'Approve Testing?', ok: 'Yes'
+                }
+                sh 'sudo mvn clean test'
+                sh 'sudo terraform destroy'
                 }
 
                 }
